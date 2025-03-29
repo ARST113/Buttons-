@@ -19,13 +19,10 @@ Lampa.Platform.tv();
                             var targetContainer = fullContainer.find('.full-start-new__buttons');
                             console.log('[SorterPlugin] Обнаружен контейнер:', targetContainer);
 
-                            // НЕ удаляем .button--play, чтобы сохранить функциональность Cinema
-                            // fullContainer.find('.button--play').remove();
-
-                            // Получаем все кнопки, исключая те, что принадлежат Cinema
+                            // Получаем все кнопки, исключая Cinema и button--play
                             var allButtons = fullContainer.find('.buttons--container .full-start__button')
                                 .add(targetContainer.find('.full-start__button'))
-                                .not('.cinema');
+                                .not('.cinema, .button--play');
 
                             // Классифицируем кнопки по классам
                             var onlineButtons = allButtons.filter(function () {
@@ -61,8 +58,8 @@ Lampa.Platform.tv();
                                 buttonOrder.push($(this));
                             });
 
-                            // Удаляем только те кнопки, которые мы собираемся переставлять (Cinema остаётся)
-                            targetContainer.find('.full-start__button').not('.cinema').remove();
+                            // Удаляем только сортируемые кнопки
+                            targetContainer.find('.full-start__button').not('.cinema, .button--play').remove();
 
                             // Добавляем кнопки в новом порядке
                             buttonOrder.forEach(function ($button) {
