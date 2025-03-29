@@ -19,13 +19,15 @@ Lampa.Platform.tv();
                             var targetContainer = fullContainer.find('.full-start-new__buttons');
                             console.log('[SorterPlugin] Обнаружен контейнер:', targetContainer);
 
-                            fullContainer.find('.button--play').remove();
+                            // НЕ удаляем .button--play, чтобы сохранить функциональность Cinema
+                            // fullContainer.find('.button--play').remove();
 
-                            // Получаем все кнопки, исключая Cinema
+                            // Получаем все кнопки, исключая те, что принадлежат Cinema
                             var allButtons = fullContainer.find('.buttons--container .full-start__button')
                                 .add(targetContainer.find('.full-start__button'))
                                 .not('.cinema');
 
+                            // Классифицируем кнопки по классам
                             var onlineButtons = allButtons.filter(function () {
                                 return $(this).attr('class').includes('online');
                             });
@@ -38,16 +40,19 @@ Lampa.Platform.tv();
 
                             var buttonOrder = [];
 
+                            // Добавляем онлайн-кнопки
                             onlineButtons.each(function () {
                                 buttonOrder.push($(this));
                             });
+                            // Добавляем торрент-кнопки
                             torrentButtons.each(function () {
                                 buttonOrder.push($(this));
                             });
+                            // Добавляем кнопки трейлеров
                             trailerButtons.each(function () {
                                 buttonOrder.push($(this));
                             });
-                            // Остальные кнопки
+                            // Добавляем оставшиеся кнопки
                             allButtons.filter(function () {
                                 return !$(this).attr('class').includes('online') &&
                                        !$(this).attr('class').includes('torrent') &&
@@ -56,7 +61,7 @@ Lampa.Platform.tv();
                                 buttonOrder.push($(this));
                             });
 
-                            // Удаляем свои кнопки, оставляя Cinema нетронутыми
+                            // Удаляем только те кнопки, которые мы собираемся переставлять (Cinema остаётся)
                             targetContainer.find('.full-start__button').not('.cinema').remove();
 
                             // Добавляем кнопки в новом порядке
