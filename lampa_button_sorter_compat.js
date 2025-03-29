@@ -26,45 +26,52 @@ Lampa.Platform.tv();
 
                             // Классифицируем кнопки по классам
                             var onlineButtons = allButtons.filter(function () {
-                                return $(this).attr('class').includes('online');
+                                return $(this).hasClass('online');
                             });
                             var torrentButtons = allButtons.filter(function () {
-                                return $(this).attr('class').includes('torrent');
+                                return $(this).hasClass('torrent');
                             });
                             var trailerButtons = allButtons.filter(function () {
-                                return $(this).attr('class').includes('trailer');
+                                return $(this).hasClass('trailer');
                             });
 
                             var buttonOrder = [];
 
-                            // Добавляем онлайн-кнопки
+                            // Добавляем кнопки по порядку
                             onlineButtons.each(function () {
                                 buttonOrder.push($(this));
                             });
-                            // Добавляем торрент-кнопки
                             torrentButtons.each(function () {
                                 buttonOrder.push($(this));
                             });
-                            // Добавляем кнопки трейлеров
                             trailerButtons.each(function () {
                                 buttonOrder.push($(this));
                             });
-                            // Добавляем оставшиеся кнопки
+                            // Остальные кнопки
                             allButtons.filter(function () {
-                                return !$(this).attr('class').includes('online') &&
-                                       !$(this).attr('class').includes('torrent') &&
-                                       !$(this).attr('class').includes('trailer');
+                                return !$(this).hasClass('online') &&
+                                       !$(this).hasClass('torrent') &&
+                                       !$(this).hasClass('trailer');
                             }).each(function () {
                                 buttonOrder.push($(this));
                             });
 
-                            // Удаляем только сортируемые кнопки
-                            targetContainer.find('.full-start__button').not('.cinema, .button--play').remove();
+                            // Сохраняем привязанные события для кнопок и Cinema
+                            var cinemaButton = fullContainer.find('.button--play.cinema');
+                            var cinemaHandler = cinemaButton.data('event-handler'); // Если Cinema имеет свой обработчик
 
-                            // Добавляем кнопки в новом порядке
+                            // Используем detach(), чтобы сохранить привязанные события
+                            targetContainer.find('.full-start__button').not('.cinema, .button--play').detach();
+
+                            // Вставляем кнопки в новом порядке
                             buttonOrder.forEach(function ($button) {
                                 targetContainer.append($button);
                             });
+
+                            // Восстанавливаем обработчик для Cinema, если он был
+                            if (cinemaButton.length && cinemaHandler) {
+                                cinemaButton.on('click', cinemaHandler);
+                            }
 
                             Lampa.Controller.toggle("full_start");
                             console.log('[SorterPlugin] Порядок кнопок изменён');
