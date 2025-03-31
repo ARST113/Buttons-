@@ -3,13 +3,13 @@ Lampa.Platform.tv();
 (function () {
     'use strict';
 
-    // Вставляем стили для обеспечения переноса кнопок
+    // Добавляем (или переопределяем) стили для переноса кнопок с уменьшенным gap
     var style = document.createElement('style');
     style.innerHTML = `
         .full-start-new__buttons {
             display: flex !important;
             flex-wrap: wrap !important;
-            gap: 10px;
+            gap: 5px !important; /* уменьшенный отступ между кнопками */
             justify-content: flex-start;
         }
     `;
@@ -37,7 +37,7 @@ Lampa.Platform.tv();
                                 .add(targetContainer.find('.full-start__button'));
                             console.log('[SorterPlugin] Всего кнопок:', allButtons.length);
 
-                            // Фильтруем группы по классам (с приведением к нижнему регистру)
+                            // Фильтруем группы по классам
                             function hasClass(el, name) {
                                 return $(el).attr('class').toLowerCase().includes(name);
                             }
