@@ -3,14 +3,27 @@ Lampa.Platform.tv();
 (function () {
     'use strict';
 
-    // Добавляем (или переопределяем) стили для переноса кнопок с уменьшенным gap
+    // Добавляем стили
     var style = document.createElement('style');
     style.innerHTML = `
         .full-start-new__buttons {
             display: flex !important;
             flex-wrap: wrap !important;
-            gap: 5px !important; /* уменьшенный отступ между кнопками */
+            gap: 5px !important;
             justify-content: flex-start;
+        }
+
+        /* Блокировка раскрытия кнопки КиноПоиска */
+        .full-start__button.view--rate {
+            pointer-events: none !important;
+            opacity: 0.5 !important;
+            transform: none !important;
+            max-width: 40px !important;
+            overflow: hidden !important;
+        }
+
+        .full-start__button.view--rate span {
+            display: none !important;
         }
     `;
     document.head.appendChild(style);
@@ -19,7 +32,6 @@ Lampa.Platform.tv();
 
     function startPlugin() {
         try {
-            // Сбрасываем параметр, если он установлен
             if (Lampa.Storage.get('full_btn_priority') !== undefined) {
                 Lampa.Storage.set('full_btn_priority', '{}');
             }
@@ -32,12 +44,9 @@ Lampa.Platform.tv();
                             var targetContainer = fullContainer.find('.full-start-new__buttons');
                             console.log('[SorterPlugin] Контейнер найден:', targetContainer);
 
-                            // Собираем все кнопки из двух контейнеров
                             var allButtons = fullContainer.find('.buttons--container .full-start__button')
                                 .add(targetContainer.find('.full-start__button'));
-                            console.log('[SorterPlugin] Всего кнопок:', allButtons.length);
 
-                            // Фильтруем группы по классам
                             function hasClass(el, name) {
                                 return $(el).attr('class').toLowerCase().includes(name);
                             }
@@ -46,25 +55,14 @@ Lampa.Platform.tv();
                             var online = allButtons.filter(function() { return hasClass(this, 'online'); });
                             var torrent = allButtons.filter(function() { return hasClass(this, 'torrent'); });
                             var trailer = allButtons.filter(function() { return hasClass(this, 'trailer'); });
-
-                            // Остальные кнопки – те, которые не попали в предыдущие группы
                             var rest = allButtons.not(cinema).not(online).not(torrent).not(trailer);
 
-                            console.log('[SorterPlugin] Cinema:', cinema.length);
-                            console.log('[SorterPlugin] Online:', online.length);
-                            console.log('[SorterPlugin] Torrent:', torrent.length);
-                            console.log('[SorterPlugin] Trailer:', trailer.length);
-                            console.log('[SorterPlugin] Остальные:', rest.length);
-
-                            // Отсоединяем группы для сохранения обработчиков
                             cinema.detach();
                             online.detach();
                             torrent.detach();
                             trailer.detach();
                             rest.detach();
 
-                            // Формируем новый порядок:
-                            // 1) Cinema → 2) Online → 3) Torrent → 4) Trailer → 5) Остальные
                             var newOrder = []
                                 .concat(cinema.get())
                                 .concat(online.get())
@@ -72,10 +70,8 @@ Lampa.Platform.tv();
                                 .concat(trailer.get())
                                 .concat(rest.get());
 
-                            // Очищаем контейнер полностью
                             targetContainer.empty();
 
-                            // Вставляем кнопки в новом порядке
                             newOrder.forEach(function(btn) {
                                 targetContainer.append(btn);
                             });
@@ -85,7 +81,7 @@ Lampa.Platform.tv();
                         } catch (err) {
                             console.error('[SorterPlugin] Ошибка сортировки:', err);
                         }
-                    }, 100); // задержка 100 мс
+                    }, 100);
                 }
             });
 
