@@ -3,7 +3,7 @@ Lampa.Platform.tv();
 (function () {
     'use strict';
 
-    // Добавляем стили
+    // Стили адаптивной кнопочной сетки
     var style = document.createElement('style');
     style.innerHTML = `
         .full-start-new__buttons {
@@ -13,17 +13,17 @@ Lampa.Platform.tv();
             justify-content: flex-start;
         }
 
-        /* Блокировка раскрытия кнопки КиноПоиска */
-        .full-start__button.view--rate {
-            pointer-events: none !important;
-            opacity: 0.5 !important;
-            transform: none !important;
-            max-width: 40px !important;
-            overflow: hidden !important;
+        .full-start__button {
+            max-width: 180px;
+            flex: 1 1 auto;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
-        .full-start__button.view--rate span {
-            display: none !important;
+        /* При желании можно ещё визуально приглушить КиноПоиск */
+        .full-start__button.view--rate {
+            opacity: 0.6;
         }
     `;
     document.head.appendChild(style);
@@ -36,9 +36,9 @@ Lampa.Platform.tv();
                 Lampa.Storage.set('full_btn_priority', '{}');
             }
 
-            Lampa.Listener.follow('full', function(e) {
+            Lampa.Listener.follow('full', function (e) {
                 if (e.type === 'complite') {
-                    setTimeout(function() {
+                    setTimeout(function () {
                         try {
                             var fullContainer = e.object.activity.render();
                             var targetContainer = fullContainer.find('.full-start-new__buttons');
@@ -51,10 +51,10 @@ Lampa.Platform.tv();
                                 return $(el).attr('class').toLowerCase().includes(name);
                             }
 
-                            var cinema = allButtons.filter(function() { return hasClass(this, 'cinema'); });
-                            var online = allButtons.filter(function() { return hasClass(this, 'online'); });
-                            var torrent = allButtons.filter(function() { return hasClass(this, 'torrent'); });
-                            var trailer = allButtons.filter(function() { return hasClass(this, 'trailer'); });
+                            var cinema = allButtons.filter(function () { return hasClass(this, 'cinema'); });
+                            var online = allButtons.filter(function () { return hasClass(this, 'online'); });
+                            var torrent = allButtons.filter(function () { return hasClass(this, 'torrent'); });
+                            var trailer = allButtons.filter(function () { return hasClass(this, 'trailer'); });
                             var rest = allButtons.not(cinema).not(online).not(torrent).not(trailer);
 
                             cinema.detach();
@@ -71,9 +71,19 @@ Lampa.Platform.tv();
                                 .concat(rest.get());
 
                             targetContainer.empty();
-
-                            newOrder.forEach(function(btn) {
+                            newOrder.forEach(function (btn) {
                                 targetContainer.append(btn);
+                            });
+
+                            // Блокируем раскрытие кнопки КиноПоиска
+                            fullContainer.find('.full-start__button.view--rate').each(function () {
+                                const btn = $(this);
+                                btn.off('hover:enter click'); // Убираем родные реакции
+                                btn.on('hover:enter click', function (e) {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    console.log('[SorterPlugin] Кнопка КиноПоиска заблокирована');
+                                });
                             });
 
                             Lampa.Controller.toggle("full_start");
