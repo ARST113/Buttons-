@@ -1,1 +1,0 @@
-"""Food order backend package."""
