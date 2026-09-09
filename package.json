@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test:frontend": "node --test tests/frontend-core.test.mjs",
+    "test:frontend": "node --test tests/frontend-core.test.mjs tests/frontend-page.test.mjs",
     "test:backend": "python3 -m unittest tests/test_menu_data.py tests/test_backend.py tests/test_backend_http.py",
     "test": "npm run test:frontend && npm run test:backend"
   }
