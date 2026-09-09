@@ -13,13 +13,10 @@ test('food ordering page exposes the agreed user and Vanya views', async () => {
   assert.match(html, /Готово/);
 });
 
-test('frontend keeps backend URL in a dedicated config module', async () => {
+test('frontend has a single production API base that can be changed later', async () => {
   const app = await read('docs/js/app.js');
-  const config = await read('docs/js/config.js');
-  assert.match(app, /from ['"]\.\/config\.js['"]/);
-  assert.match(config, /export const API_BASE/);
-  assert.match(config, /arxistar\.duckdns\.org\/food-api/);
-  assert.doesNotMatch(app, /const API_BASE\s*=/);
+  assert.match(app, /const API_BASE\s*=/);
+  assert.match(app, /arxistar\.duckdns\.org\/food-api/);
 });
 
 test('GitHub Pages workflow publishes the docs directory', async () => {
