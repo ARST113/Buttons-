@@ -1,0 +1,5 @@
+# Add this inside the EXISTING `arxistar.duckdns.org { ... }` site block.
+# `handle_path` strips `/food-api` before proxying, so the Python API sees `/orders`.
+handle_path /food-api/* {
+    reverse_proxy 127.0.0.1:8765
+}

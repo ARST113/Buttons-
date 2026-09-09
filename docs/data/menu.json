@@ -1,0 +1,11 @@
+{
+  "restaurant": "Сыто Пьяно",
+  "source": "https://sito-piano.ru/dostavka",
+  "note": "Цены и состав перенесены из предоставленного пользователем снимка меню.",
+  "parts": [
+    "menu-1.json",
+    "menu-2.json",
+    "menu-3.json",
+    "menu-4.json"
+  ]
+}

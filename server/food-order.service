@@ -1,0 +1,26 @@
+[Unit]
+Description=Food Order API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/food-order
+ExecStart=/usr/bin/python3 /opt/food-order/server/app.py
+Environment=FOOD_ORDER_HOST=127.0.0.1
+Environment=FOOD_ORDER_PORT=8765
+Environment=FOOD_ORDER_ORIGIN=https://arst113.github.io
+Environment=FOOD_ORDER_DB=/opt/food-order/server/data/orders.db
+Environment=FOOD_ORDER_MENU=/opt/food-order/docs/data/menu.json
+Restart=on-failure
+RestartSec=2
+User=foodorder
+Group=foodorder
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/food-order/server/data
+
+[Install]
+WantedBy=multi-user.target

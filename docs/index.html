@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="Общий выбор блюд Сыто Пьяно">
+  <title>Что заказываем?</title>
+  <link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+  <div id="nameGate" class="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+    <div class="gate-card">
+      <div class="brand-mark" aria-hidden="true">СП</div>
+      <p class="eyebrow">Общий заказ</p>
+      <h1 id="gateTitle">Что заказываем?</h1>
+      <p class="gate-copy">Введи имя, выбери блюда и нажми «Готово». Твой выбор сохранится в общей сводке.</p>
+      <form id="nameForm" class="name-form">
+        <label for="nameInput">Имя</label>
+        <input id="nameInput" name="name" type="text" maxlength="80" autocomplete="name" placeholder="Например, Маша" required>
+        <button class="primary-button" type="submit">Продолжить</button>
+      </form>
+      <p class="source-note">Меню и фотографии взяты с сайта «Сыто Пьяно».</p>
+    </div>
+  </div>
+
+  <main id="shopView" class="app-shell" hidden>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Сыто Пьяно</p>
+        <h1>Выбери еду</h1>
+      </div>
+      <button id="changeNameButton" class="ghost-button" type="button" aria-label="Сменить имя">
+        <span id="currentName">—</span>
+        <span aria-hidden="true">⌄</span>
+      </button>
+    </header>
+
+    <section class="intro-card">
+      <div>
+        <p class="intro-kicker">Самовывоз</p>
+        <h2>Собираем один общий заказ</h2>
+        <p>Добавляй всё, что хочешь. Количество и сумма обновляются сразу.</p>
+      </div>
+      <div class="intro-badge">11:00–05:00</div>
+    </section>
+
+    <div class="search-wrap">
+      <label class="search-box" for="searchInput">
+        <span aria-hidden="true">⌕</span>
+        <input id="searchInput" type="search" placeholder="Найти блюдо или ингредиент" autocomplete="off">
+      </label>
+    </div>
+
+    <nav id="categoryNav" class="category-nav" aria-label="Категории меню"></nav>
+
+    <section class="menu-section" aria-live="polite">
+      <div class="section-heading">
+        <div>
+          <p id="resultMeta" class="eyebrow">Загрузка меню…</p>
+          <h2 id="categoryTitle">Меню</h2>
+        </div>
+      </div>
+      <div id="menuGrid" class="menu-grid"></div>
+      <div id="menuEmpty" class="empty-state" hidden>
+        <strong>Ничего не нашли</strong>
+        <span>Попробуй другой запрос или категорию.</span>
+      </div>
+    </section>
+
+    <div class="bottom-spacer" aria-hidden="true"></div>
+  </main>
+
+  <button id="cartBar" class="cart-bar" type="button" hidden>
+    <span class="cart-count" id="cartCount">0</span>
+    <span class="cart-label">Корзина</span>
+    <strong id="cartTotal">0 ₽</strong>
+  </button>
+
+  <dialog id="cartDialog" class="cart-dialog">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="dialog-header">
+      <div>
+        <p class="eyebrow">Твой выбор</p>
+        <h2>Корзина</h2>
+      </div>
+      <button id="closeCartButton" class="icon-button" type="button" aria-label="Закрыть">×</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-summary">
+      <span>Итого</span>
+      <strong id="dialogTotal">0 ₽</strong>
+    </div>
+    <button id="submitOrderButton" class="primary-button submit-button" type="button">Готово</button>
+    <p id="submitStatus" class="status-line" aria-live="polite"></p>
+  </dialog>
+
+  <section id="successView" class="success-view" hidden>
+    <div class="success-card">
+      <div class="success-icon" aria-hidden="true">✓</div>
+      <p class="eyebrow">Сохранено</p>
+      <h1>Заказ записан</h1>
+      <p id="successName" class="success-name"></p>
+      <div id="successItems" class="success-items"></div>
+      <div class="success-total"><span>Итого</span><strong id="successTotal"></strong></div>
+      <button id="editOrderButton" class="primary-button" type="button">Изменить заказ</button>
+      <button id="newPersonButton" class="text-button" type="button">Другой человек на этом устройстве</button>
+    </div>
+  </section>
+
+  <main id="adminView" class="admin-shell" hidden>
+    <header class="admin-header">
+      <div>
+        <p class="eyebrow">Сводка</p>
+        <h1>Общий заказ</h1>
+      </div>
+      <button id="adminChangeName" class="ghost-button" type="button">Сменить имя</button>
+    </header>
+
+    <div id="adminStatus" class="admin-status">Загружаю заказы…</div>
+
+    <section class="stats-grid" aria-label="Сводные показатели">
+      <article class="stat-card"><span>Людей</span><strong id="statPeople">0</strong></article>
+      <article class="stat-card"><span>Позиций</span><strong id="statItems">0</strong></article>
+      <article class="stat-card stat-total"><span>Общая сумма</span><strong id="statTotal">0 ₽</strong></article>
+    </section>
+
+    <div class="admin-toolbar">
+      <div class="segmented" role="tablist" aria-label="Вид сводки">
+        <button class="segment active" type="button" data-admin-tab="people">По людям</button>
+        <button class="segment" type="button" data-admin-tab="dishes">По блюдам</button>
+      </div>
+      <button id="refreshAdmin" class="ghost-button" type="button">Обновить</button>
+    </div>
+
+    <section id="peoplePanel" class="admin-panel"></section>
+    <section id="dishesPanel" class="admin-panel" hidden></section>
+  </main>
+
+  <template id="menuCardTemplate">
+    <article class="menu-card">
+      <div class="image-wrap">
+        <img class="menu-image" alt="" loading="lazy" decoding="async">
+        <div class="image-fallback" hidden>Фото блюда</div>
+      </div>
+      <div class="card-body">
+        <div class="card-copy">
+          <h3 class="menu-name"></h3>
+          <p class="menu-description"></p>
+        </div>
+        <div class="card-footer">
+          <strong class="menu-price"></strong>
+          <div class="stepper"></div>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

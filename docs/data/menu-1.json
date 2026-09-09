@@ -1,0 +1,364 @@
+{
+  "items": [
+    {
+      "id": "item-001",
+      "category": "Пицца",
+      "name": "Маргарита",
+      "description": "Сыр Моцарелла, Томатный Соус, Помидоры, Орегано. 500 гр.",
+      "price": 569,
+      "image": "https://static.tildacdn.com/stor3133-6239-4464-b864-383264366437/92441322.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958211-834717321382-margarita"
+    },
+    {
+      "id": "item-002",
+      "category": "Пицца",
+      "name": "Пепперони",
+      "description": "Пепперони, Сыр Моцарелла, Томатный Соус, Острый Соус. 460 гр.",
+      "price": 575,
+      "image": "https://static.tildacdn.com/tild3839-3863-4835-b662-376238653266/_.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958211-829589047691-pepperoni"
+    },
+    {
+      "id": "item-003",
+      "category": "Пицца",
+      "name": "С Ветчиной и Грибами",
+      "description": "Ветчина, Шампиньоны, Маслины, Сыр Моцарелла, Томатный Соус, Орегано. 510 гр.",
+      "price": 589,
+      "image": "https://static.tildacdn.com/tild6634-3437-4732-b561-613531626237/____.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958211-363838236701-s-vetchinoi-i-gribami"
+    },
+    {
+      "id": "item-004",
+      "category": "Пицца",
+      "name": "Мексиканская",
+      "description": "Мексиканские Колбаски с Сыром, Кукуруза, Перец Чили, Сыр Моцарелла, Томатный Соус, Острый Соус",
+      "price": 595,
+      "image": "https://static.tildacdn.com/stor3532-3833-4966-a638-666162356435/64480172.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958211-822337890251-meksikanskaya"
+    },
+    {
+      "id": "item-005",
+      "category": "Пицца",
+      "name": "Цыпленок Терияки",
+      "description": "Куриная Грудка, Болгарский Перец, Сыр Моцарелла, Соус Терияки, Кунжут. 540 гр.",
+      "price": 605,
+      "image": "https://static.tildacdn.com/tild6638-3061-4730-b535-613663636634/______.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958211-286744980201-tsiplenok-teriyaki"
+    },
+    {
+      "id": "item-006",
+      "category": "Пицца",
+      "name": "Гавайская",
+      "description": "Куриная Грудка, Ананас, Маслины, Сыр Моцарелла, Томатный Соус. 510 гр.",
+      "price": 609,
+      "image": "https://static.tildacdn.com/stor3764-3931-4165-b732-333735396666/49618767.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958211-466462976041-gavaiskaya"
+    },
+    {
+      "id": "item-007",
+      "category": "Пицца",
+      "name": "Цыпленок под Кисло-сладким соусом",
+      "description": "Куриная Грудка, Томатный Соус, Сыр Моцарелла, Кисло-Сладкий Соус. 530 гр.",
+      "price": 609,
+      "image": "https://static.tildacdn.com/stor6464-6133-4437-b963-663233343361/27971411.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958211-940290443711-tsiplenok-pod-kislo-sladkim-sousom"
+    },
+    {
+      "id": "item-008",
+      "category": "Пицца",
+      "name": "4 Сыра Крем-Чиз",
+      "description": "Сливочно-Сырный Соус, Сыры: Моцарелла, Гауда, Дор Блю и Пармезан, Орегано. 470 гр.",
+      "price": 625,
+      "image": "https://static.tildacdn.com/tild3831-6239-4837-b530-383134616261/_4_.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958211-626637950041-4-sira-krem-chiz"
+    },
+    {
+      "id": "item-009",
+      "category": "Пицца",
+      "name": "Европейская",
+      "description": "Ветчина, Рубленая Говядина, Пепперони, Классический Томатный Соус, Шампиньоны, Сыр Моцарелла. 540 гр.",
+      "price": 615,
+      "image": "https://static.tildacdn.com/tild3333-6334-4665-b166-613738303933/_.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958211-813340613781-evropeiskaya"
+    },
+    {
+      "id": "item-010",
+      "category": "Пицца",
+      "name": "Цыпленок-Бекон-Барбекю",
+      "description": "Бекон, Куриная Грудка, Хрустящий Лук, Томатный Соус, Сыр Моцарелла, Соус Барбекю. 540 гр.",
+      "price": 635,
+      "image": "https://static.tildacdn.com/stor3437-6434-4335-a632-396631366266/faa1ed0ca1f55659d287af5a9cbf3769.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958211-672228851931-tsiplenok-bekon-barbekyu"
+    },
+    {
+      "id": "item-011",
+      "category": "Пицца",
+      "name": "Болоньезе",
+      "description": "Фарш Говядина-Свинина, Соус \"Болоньезе\", Сыр Моцарелла, Сыр Пармезан, Базилик. 560 гр.",
+      "price": 619,
+      "image": "https://static.tildacdn.com/stor3735-6536-4962-a161-396239663039/100ac86978377f590b01aef3baf2b678.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958211-517191896791-boloneze"
+    },
+    {
+      "id": "item-012",
+      "category": "Пицца",
+      "name": "Жульетта",
+      "description": "Куриная Грудка, Сыр Моцарелла, Шампиньоны, Сыр Гауда, Сливочно-Грибной Соус, Укроп. 550 гр.",
+      "price": 629,
+      "image": "https://static.tildacdn.com/tild6535-3666-4061-a434-626639326636/_.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958211-201608309831-zhuletta"
+    },
+    {
+      "id": "item-013",
+      "category": "Пицца",
+      "name": "Мясная",
+      "description": "Куриная Грудка, Рубленая Говядина, Копченый Карбонат, Мюнхенские Колбаски, Маринованные Огурчики, Томатный Соус, Сыр Моцарелла. 610 гр.",
+      "price": 645,
+      "image": "https://static.tildacdn.com/tild3831-3033-4362-a162-316431616239/-.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958211-931734354941-myasnaya"
+    },
+    {
+      "id": "item-014",
+      "category": "Пицца",
+      "name": "Бургер",
+      "description": "Бекон, Рубленая Говядина, Маринованные Огурчики, Помидоры, Хрустящий Лук, Соус Бургер, Сыр Моцарелла. 700 гр.",
+      "price": 665,
+      "image": "https://static.tildacdn.com/stor3161-3163-4131-a431-646362376661/7dd761a181e5da96f126415dbeabc151.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958211-324365734462-burger"
+    },
+    {
+      "id": "item-015",
+      "category": "Пицца",
+      "name": "Копченый Цыпленок-Песто",
+      "description": "Куриная Грудка, 2 Сыра: Моцарелла и Гауда, Соус Песто, Сливки. 530 гр.",
+      "price": 659,
+      "image": "https://static.tildacdn.com/tild3262-3238-4763-b666-333662633636/__-.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958211-947602593911-kopchenii-tsiplenok-pesto"
+    },
+    {
+      "id": "item-016",
+      "category": "Пицца",
+      "name": "Цезарь",
+      "description": "Куриная Грудка, Сыры Моцарелла и Пармезан, Помидоры, Салат Айсберг, Томатный Соус, Соус Цезарь. 620 гр.",
+      "price": 679,
+      "image": "https://static.tildacdn.com/stor3539-3564-4463-b866-313135346263/68432467.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958211-440630847121-tsezar"
+    },
+    {
+      "id": "item-017",
+      "category": "Бургеры",
+      "name": "Чизбургер",
+      "description": "Сочная Котлета из 100% Говядины, Салат Айсберг, Помидоры, Сыр Чеддер, Фирменный Соус, Маринованные Огурчики, Хрустящий Лук, Кетчуп, Булочка с Кунжутом. 200/80/30 гр.",
+      "price": 429,
+      "image": "",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958231-205637342671-chizburger"
+    },
+    {
+      "id": "item-018",
+      "category": "Бургеры",
+      "name": "Чикен Чизбургер",
+      "description": "Котлета из Мяса Цыпленка в Хрустящей Панировке, Салат Айсберг, Помидоры, Сыр Чеддер, Фирменный Соус, Маринованные Огурчики, Хрустящий Лук, Кетчуп, Булочка с Кунжутом. 200/80/30 гр.",
+      "price": 429,
+      "image": "",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958231-182806944361-chiken-chizburger"
+    },
+    {
+      "id": "item-019",
+      "category": "Бургеры",
+      "name": "Бекон Чизбургер",
+      "description": "Сочная Котлета из 100% Говядины, Бекон, Салат Айсберг, Помидоры, Сыр Чеддер, Фирменный Соус, Маринованные Огурчики, Хрустящий Лук, Кетчуп, Булочка с Кунжутом. 220 гр.",
+      "price": 449,
+      "image": "",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958231-766994225492-bekon-chizburger"
+    },
+    {
+      "id": "item-020",
+      "category": "Бургеры",
+      "name": "Бургер Блю Чиз",
+      "description": "Сочная Котлета из 100% Говядины, Сыр Дор Блю, Салат Айсберг, Помидоры, Специальный Соус, Маринованные Огурчики, Хрустящий Лук, Булочка с Кунжутом. 230/80/30 гр.",
+      "price": 445,
+      "image": "",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958231-396218749021-burger-blyu-chiz"
+    },
+    {
+      "id": "item-021",
+      "category": "Бургеры",
+      "name": "Бургер с Котлетой из Мраморной Говядины",
+      "description": "Сочная Котлета из 100% Мраморной Говядины Black Angus, Салат Айсберг, Помидоры, Сыр Чеддер, Фирменный Соус, Кетчуп, Маринованные Огурчики, Хрустящий Лук, Булочка с Кунжутом. 300/80/30 гр.",
+      "price": 485,
+      "image": "",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958231-569017770111-burger-s-kotletoi-iz-mramornoi-govyadini"
+    },
+    {
+      "id": "item-022",
+      "category": "Бургеры",
+      "name": "Беконатор",
+      "description": "Две Сочные Котлеты из 100% Говядины, Бекон, Двойной Сыр, Булочка с Кунжутом, Кетчуп, Майонез. 250/80/30 гр.",
+      "price": 485,
+      "image": "",
+      "sourceUrl": "https://sito-piano.ru/dostavka/tproduct/1032958231-525171246761-bekonator"
+    },
+    {
+      "id": "item-023",
+      "category": "Салаты",
+      "name": "Коул Слоу",
+      "description": "Красная Капуста, Китайский Салат, Огурцы, Морковь, Имбирный Соус, Кунжут. 170 гр.",
+      "price": 335,
+      "image": "https://static.tildacdn.com/tild3864-6132-4937-a233-636635363934/__.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka#order"
+    },
+    {
+      "id": "item-024",
+      "category": "Салаты",
+      "name": "C Бурратой",
+      "description": "Сыр Буррата, Салаты: Руккола, Лолло Россо, Романо, Помидоры Черри, Запечённый Болгарский Перец, Соус Песто, Бальзамический Соус Крем. 220 гр.",
+      "price": 625,
+      "image": "https://static.tildacdn.com/stor6466-3265-4035-a365-303161623131/76234834.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka#order"
+    },
+    {
+      "id": "item-025",
+      "category": "Салаты",
+      "name": "Лаззат с Хрустящими Баклажанами",
+      "description": "Баклажаны, Помидоры Черри, Кисло-Сладкий Чили Соус, Соевый Соус, Чеснок, Кинза, Кунжут. 250 гр.",
+      "price": 475,
+      "image": "https://static.tildacdn.com/stor3166-6632-4162-b333-343932353462/2c4d67b490a488916eef3120743b090e.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka#order"
+    },
+    {
+      "id": "item-026",
+      "category": "Салаты",
+      "name": "Неттуно",
+      "description": "Тигровые Креветки, Кальмары, Снежный Краб, Яйцо, Майонез, Икра Летучей Рыбы, Специи. 250 гр.",
+      "price": 545,
+      "image": "https://static.tildacdn.com/tild3363-6530-4831-b163-323339613030/__2.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka#order"
+    },
+    {
+      "id": "item-027",
+      "category": "Салаты",
+      "name": "Цезарь с Обжаренной Куриной Грудкой",
+      "description": "Обжаренная Куриная Грудка, Салат Романо, Сыр Пармезан, Гренки, Помидоры Черри, Соус Цезарь. 150/80 гр.",
+      "price": 559,
+      "image": "https://static.tildacdn.com/stor6139-3062-4130-b736-623266326532/93712619.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka#order"
+    },
+    {
+      "id": "item-028",
+      "category": "Салаты",
+      "name": "Цезарь с Тигровыми Креветками",
+      "description": "Тигровые Креветки, Салат Романо, Сыр Пармезан, Гренки, Помидоры Черри, Соус Цезарь. 150/50 гр.",
+      "price": 609,
+      "image": "https://static.tildacdn.com/stor3666-3536-4430-b563-353866303534/98329504.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka#order"
+    },
+    {
+      "id": "item-029",
+      "category": "Салаты",
+      "name": "Руккола с Тигровыми Креветками",
+      "description": "Салат Руккола, Тигровые Креветки, Авокадо, Сыр Пармезан, Помидоры Черри, Кедровые Орешки, Специальный Соус, Специи. 220 гр.",
+      "price": 689,
+      "image": "https://static.tildacdn.com/stor3331-3033-4538-a434-663765333733/58112877.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka#order"
+    },
+    {
+      "id": "item-030",
+      "category": "Салаты",
+      "name": "Греческий",
+      "description": "Огурцы,помидоры черри,перец рамиро,красный лук,оливки гигант,сыр фета,каперсы,гренки из зернового хлеба,оливковое масло,бальзамический уксус,орегано,укроп",
+      "price": 605,
+      "image": "https://static.tildacdn.com/stor6137-3933-4163-b434-326266316336/78596208.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka#order"
+    },
+    {
+      "id": "item-031",
+      "category": "Салаты",
+      "name": "Салат с ростбифом",
+      "description": "Ростбиф, Салаты: Руккола, Лолло Россо, Романо, Помидоры Черри, Болгарский Перец, Соус Сливочный Тунец, Тосты из Злакового Хлеба. 230 гр.",
+      "price": 569,
+      "image": "https://static.tildacdn.com/stor6333-3435-4861-b832-636235353663/11390089.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka#order"
+    },
+    {
+      "id": "item-032",
+      "category": "Закуски",
+      "name": "Сельдь с Картофелем и Чесночными Гренками",
+      "description": "240 гр.",
+      "price": 375,
+      "image": "https://static.tildacdn.com/tild3562-6539-4136-b431-333165353365/______2.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka#order"
+    },
+    {
+      "id": "item-033",
+      "category": "Закуски",
+      "name": "Шаурма",
+      "description": "Мясо Цыпленка, Лаваш, Специальный Соус, Помидоры, Огурцы, Китайский Салат, Хрустящий Лук, Корейская Морковь. 350 гр.",
+      "price": 409,
+      "image": "https://static.tildacdn.com/tild3930-3365-4366-a331-333064303331/photo.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka#order"
+    },
+    {
+      "id": "item-034",
+      "category": "Закуски",
+      "name": "Кесадилья с Курицей",
+      "description": "Лепешка Тортилья, Куриная Грудка, Сыр Гауда, Болгарский Перец, Шампиньоны, Кукуруза, Красный Лук, Перец Чили, Томатный Соус, Кинза, Петрушка, Специи, Сметана. 210/30 гр.",
+      "price": 379,
+      "image": "https://static.tildacdn.com/stor3461-3538-4736-a465-323935333063/44480000.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka#order"
+    },
+    {
+      "id": "item-035",
+      "category": "Закуски",
+      "name": "Клаб Сэндвич с Картофелем Фри",
+      "description": "Тостовый Хлеб, Майонез, Куриная Грудка, Салат Айсберг, Помидоры, Хрустящий Лук, Сыр Чеддер, Бекон, Яйцо. 279/100/50 гр.",
+      "price": 495,
+      "image": "https://static.tildacdn.com/tild3035-3331-4866-b735-313863353937/klab_Dostavka_04.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka#order"
+    },
+    {
+      "id": "item-036",
+      "category": "Закуски",
+      "name": "Фруктовая Тарелка",
+      "description": "Виноград, Ананас, Киви, Грейпфрут, Апельсин, Яблоко. 900 гр.",
+      "price": 585,
+      "image": "https://static.tildacdn.com/tild3939-6533-4037-b261-376661353339/_.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka#order"
+    },
+    {
+      "id": "item-037",
+      "category": "Закуски",
+      "name": "Ростбиф",
+      "description": "",
+      "price": 489,
+      "image": "https://static.tildacdn.com/stor6162-3134-4063-b231-656261363737/20279044.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka#order"
+    },
+    {
+      "id": "item-038",
+      "category": "Закуски",
+      "name": "Брускетта с Ростбифом",
+      "description": "Хлеб зерновой,соус сливочный тунец,салат руккола,ростбиф,перец болгарский маринованный",
+      "price": 395,
+      "image": "https://static.tildacdn.com/stor6335-6235-4639-b736-656466353938/54308826.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka#order"
+    },
+    {
+      "id": "item-039",
+      "category": "Закуски",
+      "name": "Брускетта с копченым лососем",
+      "description": "Хлеб зерновой,соус сливочный тунец,салат руккола,лосось копченый",
+      "price": 409,
+      "image": "https://static.tildacdn.com/stor6266-3364-4565-b032-376261613261/17969607.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka#order"
+    },
+    {
+      "id": "item-040",
+      "category": "Закуски",
+      "name": "Чесночные Гренки с Сыром Пармезан",
+      "description": "100/30 гр.",
+      "price": 315,
+      "image": "https://static.tildacdn.com/stor3865-6334-4637-b230-313065653836/eaa16989061129e0fba9fbc1a444e00f.jpg",
+      "sourceUrl": "https://sito-piano.ru/dostavka#order"
+    }
+  ]
+}
