@@ -19,9 +19,16 @@ test('frontend has a single production API base that can be changed later', asyn
   assert.match(app, /arxistar\.duckdns\.org\/food-api/);
 });
 
+test('frontend confirms and requests a full order database clear', async () => {
+  const app = await read('docs/js/app.js');
+  assert.match(app, /confirm\(/);
+  assert.match(app, /method:\s*['\"]DELETE['\"]/);
+  assert.match(app, /\/orders/);
+});
 test('GitHub Pages workflow publishes the docs directory', async () => {
   const workflow = await read('.github/workflows/pages.yml');
   assert.match(workflow, /actions\/upload-pages-artifact@v3/);
   assert.match(workflow, /path:\s*['"]?\.\/docs['"]?/);
   assert.match(workflow, /actions\/deploy-pages@v4/);
 });
+
