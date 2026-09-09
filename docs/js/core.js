@@ -6,6 +6,10 @@ export function isAdminName(value) {
   return normalizeName(value).toLocaleLowerCase('ru-RU') === 'ваня';
 }
 
+export function isClearName(value) {
+  return normalizeName(value) === 'kill_cql1';
+}
+
 export function cartCount(cart) {
   let count = 0;
   for (const qty of cart.values()) {
@@ -49,3 +53,4 @@ export function resolveMenuItems(manifest, partPayloads = []) {
   if (!Array.isArray(manifest?.parts)) throw new Error('Некорректный формат меню');
   return partPayloads.flatMap((part) => Array.isArray(part?.items) ? part.items : []);
 }
+
