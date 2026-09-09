@@ -1,6 +1,7 @@
 import {
   normalizeName,
   isAdminName,
+  isClearName,
   cartCount,
   cartTotal,
   filterMenu,
@@ -262,6 +263,32 @@ function enterShop(name) {
   restoreOwnOrder();
 }
 
+async function clearAllOrders(command) {
+  const confirmed = window.confirm('Удалить все заказы? Отменить это действие нельзя.');
+  if (!confirmed) {
+    els.nameInput.select();
+    return;
+  }
+
+  const submitButton = els.nameForm.querySelector('button');
+  submitButton.disabled = true;
+  try {
+    const result = await api('/orders', {
+      method: 'DELETE',
+      body: JSON.stringify({ name: command }),
+    });
+    saveIdentity(null);
+    state.cart.clear();
+    state.lastAdminData = null;
+    window.alert(`База очищена. Удалено заказов: ${result.deletedOrders}.`);
+    resetToNameGate({ clearIdentity: true });
+  } catch (error) {
+    window.alert(`Не удалось очистить базу: ${error.message}`);
+  } finally {
+    submitButton.disabled = false;
+  }
+}
+
 function enterAdmin() {
   state.name = 'Ваня';
   els.nameGate.hidden = true;
@@ -378,7 +405,8 @@ els.nameForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const name = normalizeName(els.nameInput.value);
   if (!name) return;
-  if (isAdminName(name)) enterAdmin();
+  if (isClearName(name)) clearAllOrders(name);
+  else if (isAdminName(name)) enterAdmin();
   else enterShop(name);
 });
 els.searchInput.addEventListener('input', () => { state.search = els.searchInput.value; renderMenu(); });
@@ -409,3 +437,4 @@ document.querySelectorAll('[data-admin-tab]').forEach((button) => button.addEven
     document.querySelector('.gate-copy').textContent = error.message;
   }
 })();
+
