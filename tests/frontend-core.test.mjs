@@ -7,6 +7,7 @@ import {
   buildSelectionPayload,
   normalizeName,
   isAdminName,
+  isClearName,
   resolveMenuItems,
 } from '../docs/js/core.js';
 
@@ -44,8 +45,15 @@ test('name normalization and Vanya shortcut are case-insensitive', () => {
   assert.equal(isAdminName('Ванечка'), false);
 });
 
+test('database clear shortcut only accepts the exact command', () => {
+  assert.equal(isClearName('kill_cql1'), true);
+  assert.equal(isClearName(' kill_cql1 '), true);
+  assert.equal(isClearName('KILL_CQL1'), false);
+  assert.equal(isClearName('kill_cql'), false);
+});
 test('resolveMenuItems combines split menu parts from a manifest', () => {
   const manifest = { parts: ['menu-1.json', 'menu-2.json'] };
   const parts = [{ items: [menu[0]] }, { items: [menu[1], menu[2]] }];
   assert.deepEqual(resolveMenuItems(manifest, parts), menu);
 });
+
