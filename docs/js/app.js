@@ -186,22 +186,15 @@ function renderCartDialog() {
   els.submitStatus.classList.remove('error');
 }
 
-async function restoreOwnOrder() {
-  if (!state.identity?.orderId || !state.identity?.token) return;
-  try {
-    const params = new URLSearchParams({ token: state.identity.token });
-    const payload = await api(`/orders/${state.identity.orderId}?${params}`);
-    state.cart = new Map(payload.order.items.map((item) => [item.id, item.qty]));
-    renderMenu();
-    renderCartBar();
-  } catch (error) {
-    console.warn('Saved order could not be restored:', error);
-    saveIdentity(null);
-  }
+async function lookupOrderByName(name) {
+  const payload = await api('/orders/lookup', {
+    method: 'POST',
+    body: JSON.stringify({ name }),
+  });
+  return payload.order;
 }
 
-async function submitOrder() {
-  const items = buildSelectionPayload(state.cart);
+async function submitOrder() {  const items = buildSelectionPayload(state.cart);
   if (!items.length) return;
   els.submitOrderButton.disabled = true;
   els.submitStatus.textContent = state.identity ? 'Обновляю заказ…' : 'Сохраняю заказ…';
@@ -248,23 +241,40 @@ function showSuccess(order) {
   els.successTotal.textContent = formatRub(order.total);
 }
 
-function enterShop(name) {
+async function enterShop(name) {
   stopAdminPolling();
-  state.name = normalizeName(name);
-  els.currentName.textContent = state.name;
-  els.nameGate.hidden = true;
-  els.adminView.hidden = true;
-  els.successView.hidden = true;
-  els.shopView.hidden = false;
-  if (state.identity && normalizeName(state.identity.name).toLocaleLowerCase('ru-RU') !== state.name.toLocaleLowerCase('ru-RU')) {
-    saveIdentity(null);
-    state.cart.clear();
+  const requestedName = normalizeName(name);
+  const submitButton = els.nameForm.querySelector('button');
+  submitButton.disabled = true;
+
+  try {
+    const order = await lookupOrderByName(requestedName);
+    if (order) {
+      state.name = normalizeName(order.name);
+      state.cart = new Map(order.items.map((item) => [item.id, item.qty]));
+      saveIdentity({ orderId: order.orderId, token: order.editToken, name: state.name });
+    } else {
+      state.name = requestedName;
+      state.cart.clear();
+      saveIdentity(null);
+    }
+
+    els.currentName.textContent = state.name;
+    els.nameGate.hidden = true;
+    els.adminView.hidden = true;
+    els.successView.hidden = true;
+    els.shopView.hidden = false;
+    renderMenu();
+    renderCartBar();
+  } catch (error) {
+    window.alert(`Не удалось восстановить заказ: ${error.message}`);
+    els.nameInput.select();
+  } finally {
+    submitButton.disabled = false;
   }
-  restoreOwnOrder();
 }
 
-async function clearAllOrders(command) {
-  const confirmed = window.confirm('Удалить все заказы? Отменить это действие нельзя.');
+async function clearAllOrders(command) {  const confirmed = window.confirm('Удалить все заказы? Отменить это действие нельзя.');
   if (!confirmed) {
     els.nameInput.select();
     return;
@@ -401,13 +411,13 @@ function plural(value, one, few, many) {
   return many;
 }
 
-els.nameForm.addEventListener('submit', (event) => {
+els.nameForm.addEventListener('submit', async (event) => {
   event.preventDefault();
   const name = normalizeName(els.nameInput.value);
   if (!name) return;
   if (isClearName(name)) clearAllOrders(name);
   else if (isAdminName(name)) enterAdmin();
-  else enterShop(name);
+  else await enterShop(name);
 });
 els.searchInput.addEventListener('input', () => { state.search = els.searchInput.value; renderMenu(); });
 els.cartBar.addEventListener('click', () => { renderCartDialog(); els.cartDialog.showModal(); });
@@ -437,4 +447,3 @@ document.querySelectorAll('[data-admin-tab]').forEach((button) => button.addEven
     document.querySelector('.gate-copy').textContent = error.message;
   }
 })();
-
