@@ -25,10 +25,15 @@ test('frontend confirms and requests a full order database clear', async () => {
   assert.match(app, /method:\s*['\"]DELETE['\"]/);
   assert.match(app, /\/orders/);
 });
+test('frontend restores an order by normalized participant name before opening the menu', async () => {
+  const app = await read('docs/js/app.js');
+  assert.match(app, /\/orders\/lookup/);
+  assert.match(app, /async function enterShop/);
+  assert.match(app, /saveIdentity\(\{ orderId: order\.orderId, token: order\.editToken/);
+});
 test('GitHub Pages workflow publishes the docs directory', async () => {
   const workflow = await read('.github/workflows/pages.yml');
   assert.match(workflow, /actions\/upload-pages-artifact@v3/);
   assert.match(workflow, /path:\s*['"]?\.\/docs['"]?/);
   assert.match(workflow, /actions\/deploy-pages@v4/);
 });
-
